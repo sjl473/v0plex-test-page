@@ -1,0 +1,26 @@
+{
+  "images": {
+    "logo": "/assets/images/logo.svg",
+    "placeholder": "/assets/images/placeholder.svg"
+  },
+  "icons": {
+    "search": "@carbon/icons-react/Search",
+    "light": "@carbon/icons-react/Light",
+    "asleep": "@carbon/icons-react/Asleep",
+    "copy": "@carbon/icons-react/Copy",
+    "checkmark": "@carbon/icons-react/Checkmark",
+    "chevronDown": "@carbon/icons-react/ChevronDown",
+    "chevronRight": "@carbon/icons-react/ChevronRight",
+    "document": "@carbon/icons-react/Document",
+    "folder": "@carbon/icons-react/Folder"
+  },
+  "fonts": {
+    "primary": "IBM Plex Sans",
+    "mono": "IBM Plex Mono"
+  },
+  "mathjax": {
+    "offline": true,
+    "localPath": "/js/tex-chtml.js",
+    "status": "included in project files"
+  }
+}

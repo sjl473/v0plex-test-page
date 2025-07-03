@@ -1,0 +1,52 @@
+.highlightBox {
+  background: var(--v0plex-background-hover);
+  padding: 1rem !important;
+  margin: 1.5rem 0 !important; 
+  width: 100% !important; 
+}
+
+.highlightBoxInfo {
+  border-left: 4px solid var(--v0plex-link-primary);
+}
+
+.highlightBoxWarning {
+  border-left: 4px solid #f1c21b;
+}
+
+.highlightBoxSuccess {
+  border-left: 4px solid #24a148;
+}
+
+.highlightTitle {
+  margin: 0 0 0.5rem 0 !important;
+  color: var(--v0plex-text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  text-indent: 0 !important; 
+}
+
+.highlightContent {
+  color: var(--v0plex-text-primary);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin: 0 !important;
+  text-indent: 0 !important; 
+}
+
+
+.highlightBox * {
+  text-indent: 0 !important;
+}
+
+.highlightContent * {
+  text-indent: 0 !important;
+}
+
+.highlightContent p {
+  text-indent: 0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.highlightContent p:last-child {
+  margin-bottom: 0 !important;
+}

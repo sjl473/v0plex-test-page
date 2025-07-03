@@ -1,0 +1,47 @@
+.infoCard {
+  background: var(--v0plex-background-hover);
+  border: 1px solid var(--v0plex-border-subtle);
+  padding: 1rem;
+  position: relative;
+  cursor: default;
+  transition: all 0.2s ease;
+}
+
+.infoCardClickable {
+  cursor: pointer;
+}
+
+.infoCardClickable:hover {
+  background: var(--v0plex-background-active);
+}
+
+.iconBottomLeft {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  color: var(--v0plex-icon-secondary);
+}
+
+.iconBottomRight {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  color: var(--v0plex-icon-secondary);
+}
+
+.cardTitle {
+  color: var(--v0plex-text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+}
+
+.cardContent {
+  color: var(--v0plex-text-primary);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.cardContentClickable {
+  padding-bottom: 1.5rem;
+}

@@ -2,13 +2,13 @@
 
 import type React from "react"
 
-interface CarbonCardProps {
+interface FakeCdsCardProps {
   title?: string
   children: React.ReactNode
   className?: string
 }
 
-export default function Card({ title, children, className = "" }: CarbonCardProps) {
+export default function FakeCdsCard({ title, children, className = "" }: FakeCdsCardProps) {
   return (
     <div
       className={`carbon-card ${className}`}

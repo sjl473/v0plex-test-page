@@ -7,8 +7,7 @@
 .navContainer {
   display: flex;
   max-width: 800px;
-  margin: 0;
-  margin-left: 2rem;
+  margin: 0 0 0 2rem;
   padding: 0 2rem;
   gap: 2rem;
 }

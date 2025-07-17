@@ -3,11 +3,14 @@
 import CodeBlock from "@/components/code-block"
 import ContentTable from "@/components/content-table"
 import InfoCard from "@/components/info-card"
-import CardGrid from "@/components/card-grid"
+import FakeCdsCardGrid from "@/components/fake-cds-card-grid"
 import HighlightBox from "@/components/highlight-box"
 import { Code, Dashboard } from "@carbon/icons-react"
+import { Breadcrumb, BreadcrumbItem, GlobalTheme, Theme } from "@carbon/react"
+import {useTheme} from "@/components/theme-provider";
 
 export default function Test2Page() {
+  const { theme } = useTheme();
   const tableData = [
     {
       Concept: <strong>Arrow Functions</strong>,
@@ -73,35 +76,56 @@ export default function Test2Page() {
   ]
 
   return (
+      <GlobalTheme theme={theme}>
     <div className="v0plex-content">
       <div className="page-typography-content">
         <h1>Test 2</h1>
-
+        <Theme as="section" theme={theme}>
+          <Breadcrumb>
+            <BreadcrumbItem>
+              <a href="/public#">
+                Breadcrumb 1
+              </a>
+            </BreadcrumbItem>
+            <BreadcrumbItem href="#">
+              Breadcrumb 2
+            </BreadcrumbItem>
+            <BreadcrumbItem href="#">
+              Breadcrumb 3
+            </BreadcrumbItem>
+            <BreadcrumbItem href="#">
+              Breadcrumb 4
+            </BreadcrumbItem>
+          </Breadcrumb></Theme>
         <p className="lead-text">
           A comprehensive exploration of modern JavaScript development patterns, best practices, and advanced techniques
           for building robust web applications.
         </p>
-
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZAz3rnLGthg?si=LuC_mQ5X4eak01WR"
+                title="YouTube video player" frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen></iframe>
         <h2>JavaScript Fundamentals</h2>
-
-        <ContentTable headers={["Concept", "Description", "Use Case", "Best Practice"]} rows={tableData} />
-
+        
+        <ContentTable headers={["Concept", "Description", "Use Case", "Best Practice"]} rows={tableData}/>
+        
         <h2>Frontend Framework Comparison</h2>
-
+        
         <p>
           Here's a comprehensive comparison of popular frontend frameworks with multiple columns to test table
           responsiveness:
         </p>
-
+        
         <ContentTable
           headers={["Framework", "Type", "Language", "Performance", "Learning Curve", "Community"]}
           rows={multiColumnTableData}
         />
-
+        
         <h3>Code Examples</h3>
-
+        
         <p>Here are practical examples demonstrating modern JavaScript patterns:</p>
-
+        
         <CodeBlock language="JavaScript">
           {`
 const processUser = ({ name, email, age = 18 }) => {
@@ -140,11 +164,11 @@ const activeAdults = users
 
 console.log('Active adults:', activeAdults);`}
         </CodeBlock>
-
+        
         <h3>Advanced Patterns</h3>
-
-        <CardGrid columns={2}>
-          <InfoCard title="Design Patterns" icon={<Code size={16} />} clickable>
+        
+        <FakeCdsCardGrid columns={2}>
+          <InfoCard title="Design Patterns" icon={<Code size={16}/>} clickable>
             <ul>
               <li>Module pattern</li>
               <li>Observer pattern</li>
@@ -152,8 +176,8 @@ console.log('Active adults:', activeAdults);`}
               <li>Singleton pattern</li>
             </ul>
           </InfoCard>
-
-          <InfoCard title="Performance Optimization" icon={<Dashboard size={16} />} clickable>
+          
+          <InfoCard title="Performance Optimization" icon={<Dashboard size={16}/>} clickable>
             <ul>
               <li>Debouncing and throttling</li>
               <li>Lazy loading</li>
@@ -161,10 +185,10 @@ console.log('Active adults:', activeAdults);`}
               <li>Virtual DOM concepts</li>
             </ul>
           </InfoCard>
-        </CardGrid>
-
+        </FakeCdsCardGrid>
+        
         <h3>Error Handling Strategy</h3>
-
+        
         <CodeBlock language="JavaScript">
           {`
 class APIError extends Error {
@@ -208,7 +232,7 @@ async function robustAPICall(endpoint, options = {}) {
   }
 }`}
         </CodeBlock>
-
+        
         <HighlightBox title="Development Best Practices">
           <p>
             Modern JavaScript development requires understanding of asynchronous patterns, error handling, and
@@ -218,5 +242,6 @@ async function robustAPICall(endpoint, options = {}) {
         </HighlightBox>
       </div>
     </div>
+      </GlobalTheme>
   )
 }

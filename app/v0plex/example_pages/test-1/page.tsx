@@ -4,7 +4,7 @@ import MathFormula from "@/components/math-formula"
 import CodeBlock from "@/components/code-block"
 import ContentTable from "@/components/content-table"
 import InfoCard from "@/components/info-card"
-import CardGrid from "@/components/card-grid"
+import FakeCdsCardGrid from "@/components/fake-cds-card-grid"
 import HighlightBox from "@/components/highlight-box"
 import { ChartLine, Code } from "@carbon/icons-react"
 
@@ -67,7 +67,7 @@ console.log(\`Sum of first 100 numbers: \${sum}\`);`}
 
         <h3>Advanced Applications</h3>
 
-        <CardGrid columns={2}>
+        <FakeCdsCardGrid columns={2}>
           <InfoCard title="Physics Simulations" icon={<ChartLine size={16} />} clickable>
             <ul>
               <li>Particle physics calculations</li>
@@ -85,7 +85,7 @@ console.log(\`Sum of first 100 numbers: \${sum}\`);`}
               <li>Cryptographic systems</li>
             </ul>
           </InfoCard>
-        </CardGrid>
+        </FakeCdsCardGrid>
 
         <HighlightBox title="Key Insight">
           <p>

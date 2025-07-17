@@ -15,16 +15,12 @@
   table-layout: fixed;
   
   overflow: visible !important;
-  overflow-x: visible !important;
-  overflow-y: visible !important;
 }
 
 .contentTable tr {
   width: 100%;
   
   overflow: visible !important;
-  overflow-x: visible !important;
-  overflow-y: visible !important;
 }
 
 .contentTable td {
@@ -49,8 +45,6 @@
 
   
   overflow: visible !important;
-  overflow-x: visible !important;
-  overflow-y: visible !important;
 }
 
 .contentTable td:last-child {
@@ -67,8 +61,6 @@
 
   
   overflow: visible !important;
-  overflow-x: visible !important;
-  overflow-y: visible !important;
 }
 
 .contentTable tr:last-child td {
@@ -281,6 +273,7 @@
   .contentTable td:nth-child(2):nth-last-child(2),
   .contentTable td:nth-child(3):nth-last-child(1) {
     width: 33.33%;
+
   }
 
   .contentTable td:nth-child(1):nth-last-child(4),
@@ -329,15 +322,15 @@
 }
 
 
-.dark .tableContainer::-webkit-scrollbar-track {
+.g100 .tableContainer::-webkit-scrollbar-track {
   background: var(--v0plex-background);
 }
 
-.dark .tableContainer::-webkit-scrollbar-thumb {
+.g100 .tableContainer::-webkit-scrollbar-thumb {
   background: #525252;
 }
 
-.dark .tableContainer::-webkit-scrollbar-thumb:hover {
+.g100 .tableContainer::-webkit-scrollbar-thumb:hover {
   background: #6f6f6f;
 }
 
@@ -347,7 +340,7 @@
   scrollbar-color: #c6c6c6 var(--v0plex-background);
 }
 
-.dark .tableContainer {
+.g100 .tableContainer {
   scrollbar-color: #525252 var(--v0plex-background);
 }
 
@@ -362,9 +355,6 @@
 .contentTable .katex-html {
   
   overflow: visible !important;
-  overflow-x: visible !important;
-  overflow-y: visible !important;
-  
   max-width: none !important;
   
   white-space: nowrap !important;
@@ -379,6 +369,4 @@
 .contentTable *:before,
 .contentTable *:after {
   overflow: visible !important;
-  overflow-x: visible !important;
-  overflow-y: visible !important;
 }

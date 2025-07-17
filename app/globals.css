@@ -19,8 +19,8 @@ body {
   overflow-x: hidden;
 }
 
-html[v0plex-theme="light"],
-body[v0plex-theme="light"] {
+html[v0plex-theme="white"],
+body[v0plex-theme="white"] {
   --v0plex-background: #ffffff;
   --v0plex-background-hover: #f4f4f4;
   --v0plex-background-active: #e0e0e0;
@@ -39,7 +39,7 @@ body[v0plex-theme="light"] {
   --v0plex-text-on-color: #ffffff;
   --v0plex-focus: #0f62fe;
 
-  /* Custom sidebar colors for light theme */
+  /* Custom sidebar colors for white theme */
   --sidebar-search-bg: #e8e8e8;
   --sidebar-search-input-bg: #ffffff;
   --sidebar-search-input-hover: #f4f4f4;
@@ -55,8 +55,8 @@ body[v0plex-theme="light"] {
   color: #161616 !important;
 }
 
-html[v0plex-theme="dark"],
-body[v0plex-theme="dark"] {
+html[v0plex-theme="g100"],
+body[v0plex-theme="g100"] {
   --v0plex-background: #161616;
   --v0plex-background-hover: #262626;
   --v0plex-background-active: #393939;
@@ -75,7 +75,7 @@ body[v0plex-theme="dark"] {
   --v0plex-text-on-color: #ffffff;
   --v0plex-focus: #0f62fe;
 
-  /* Custom sidebar colors for dark theme */
+  /* Custom sidebar colors for g100 theme */
   --sidebar-search-bg: #262626;
   --sidebar-search-input-bg: #393939;
   --sidebar-search-input-hover: #4c4c4c;
@@ -145,7 +145,7 @@ body[v0plex-theme="dark"] {
 }
 
 .page-typography-content p {
-  color: var(--v0plex-text-primary);
+  color: var(--v0plex-text-secondary);
   margin-bottom: 1rem;
   line-height: 1.29;
   font-size: 0.875rem;
@@ -295,41 +295,42 @@ div:not(pre) > code:not(pre *) {
   word-break: break-all;
 }
 
-html[v0plex-theme="light"] code:not(pre code):not(pre *),
-html[v0plex-theme="light"] p code:not(pre *),
-html[v0plex-theme="light"] li code:not(pre *),
-html[v0plex-theme="light"] td code:not(pre *),
-html[v0plex-theme="light"] th code:not(pre *),
-html[v0plex-theme="light"] h1 code:not(pre *),
-html[v0plex-theme="light"] h2 code:not(pre *),
-html[v0plex-theme="light"] h3 code:not(pre *),
-html[v0plex-theme="light"] h4 code:not(pre *),
-html[v0plex-theme="light"] h5 code:not(pre *),
-html[v0plex-theme="light"] h6 code:not(pre *),
-html[v0plex-theme="light"] span code:not(pre *),
-html[v0plex-theme="light"] div:not(pre) > code:not(pre *) {
+html[v0plex-theme="white"] code:not(pre code):not(pre *),
+html[v0plex-theme="white"] p code:not(pre *),
+html[v0plex-theme="white"] li code:not(pre *),
+html[v0plex-theme="white"] td code:not(pre *),
+html[v0plex-theme="white"] th code:not(pre *),
+html[v0plex-theme="white"] h1 code:not(pre *),
+html[v0plex-theme="white"] h2 code:not(pre *),
+html[v0plex-theme="white"] h3 code:not(pre *),
+html[v0plex-theme="white"] h4 code:not(pre *),
+html[v0plex-theme="white"] h5 code:not(pre *),
+html[v0plex-theme="white"] h6 code:not(pre *),
+html[v0plex-theme="white"] span code:not(pre *),
+html[v0plex-theme="white"] div:not(pre) > code:not(pre *) {
   background: #f4f4f4 !important;
   color: #161616 !important;
   border: 1px solid #e0e0e0;
 }
 
-html[v0plex-theme="dark"] code:not(pre code):not(pre *),
-html[v0plex-theme="dark"] p code:not(pre *),
-html[v0plex-theme="dark"] li code:not(pre *),
-html[v0plex-theme="dark"] td code:not(pre *),
-html[v0plex-theme="dark"] th code:not(pre *),
-html[v0plex-theme="dark"] h1 code:not(pre *),
-html[v0plex-theme="dark"] h2 code:not(pre *),
-html[v0plex-theme="dark"] h3 code:not(pre *),
-html[v0plex-theme="dark"] h4 code:not(pre *),
-html[v0plex-theme="dark"] h5 code:not(pre *),
-html[v0plex-theme="dark"] h6 code:not(pre *),
-html[v0plex-theme="dark"] span code:not(pre *),
-html[v0plex-theme="dark"] div:not(pre) > code:not(pre *) {
+html[v0plex-theme="g100"] code:not(pre code):not(pre *),
+html[v0plex-theme="g100"] p code:not(pre *),
+html[v0plex-theme="g100"] li code:not(pre *),
+html[v0plex-theme="g100"] td code:not(pre *),
+html[v0plex-theme="g100"] th code:not(pre *),
+html[v0plex-theme="g100"] h1 code:not(pre *),
+html[v0plex-theme="g100"] h2 code:not(pre *),
+html[v0plex-theme="g100"] h3 code:not(pre *),
+html[v0plex-theme="g100"] h4 code:not(pre *),
+html[v0plex-theme="g100"] h5 code:not(pre *),
+html[v0plex-theme="g100"] h6 code:not(pre *),
+html[v0plex-theme="g100"] span code:not(pre *),
+html[v0plex-theme="g100"] div:not(pre) > code:not(pre *) {
   background: #393939 !important;
   color: #f4f4f4 !important;
   border: 1px solid #525252;
 }
+
 
 .math-formula {
   display: inline-block;

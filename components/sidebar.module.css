@@ -15,42 +15,42 @@
 }
 
 
-html[v0plex-theme="light"] .sidebar::-webkit-scrollbar {
+html[v0plex-theme="white"] .sidebar::-webkit-scrollbar {
   width: 6px;
 }
 
-html[v0plex-theme="light"] .sidebar::-webkit-scrollbar-track {
+html[v0plex-theme="white"] .sidebar::-webkit-scrollbar-track {
   background: #f4f4f4;
   border-radius: 3px;
 }
 
-html[v0plex-theme="light"] .sidebar::-webkit-scrollbar-thumb {
+html[v0plex-theme="white"] .sidebar::-webkit-scrollbar-thumb {
   background: #c6c6c6;
   border-radius: 3px;
   transition: background-color 0.2s ease;
 }
 
-html[v0plex-theme="light"] .sidebar::-webkit-scrollbar-thumb:hover {
+html[v0plex-theme="white"] .sidebar::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
 
 
-html[v0plex-theme="dark"] .sidebar::-webkit-scrollbar {
+html[v0plex-theme="g100"] .sidebar::-webkit-scrollbar {
   width: 6px;
 }
 
-html[v0plex-theme="dark"] .sidebar::-webkit-scrollbar-track {
+html[v0plex-theme="g100"] .sidebar::-webkit-scrollbar-track {
   background: #262626;
   border-radius: 3px;
 }
 
-html[v0plex-theme="dark"] .sidebar::-webkit-scrollbar-thumb {
+html[v0plex-theme="g100"] .sidebar::-webkit-scrollbar-thumb {
   background: #525252;
   border-radius: 3px;
   transition: background-color 0.2s ease;
 }
 
-html[v0plex-theme="dark"] .sidebar::-webkit-scrollbar-thumb:hover {
+html[v0plex-theme="g100"] .sidebar::-webkit-scrollbar-thumb:hover {
   background: #6f6f6f;
 }
 
@@ -59,20 +59,20 @@ html[v0plex-theme="dark"] .sidebar::-webkit-scrollbar-thumb:hover {
   scrollbar-width: thin;
 }
 
-html[v0plex-theme="light"] .sidebar {
+html[v0plex-theme="white"] .sidebar {
   scrollbar-color: #c6c6c6 #f4f4f4;
 }
 
-html[v0plex-theme="dark"] .sidebar {
+html[v0plex-theme="g100"] .sidebar {
   scrollbar-color: #525252 #262626;
 }
 
 .sidebar.mobileOpen {
-  
+
 }
 
 .searchSection {
-  padding: 0.5rem;
+  /*padding: 0.5rem;*/
   border-bottom: 1px solid var(--v0plex-border-subtle);
   background: var(--sidebar-search-bg);
   margin: 0;
@@ -113,19 +113,21 @@ html[v0plex-theme="dark"] .sidebar {
 }
 
 .searchInput::placeholder {
-  color: var(--v0plex-text-placeholder);
+
   font-size: 0.75rem;
 }
 
 .searchInput:focus {
-  border: 2px solid var(--v0plex-focus);
+  /*border: 2px solid var(--v0plex-focus);*/
   outline: none;
   background: var(--sidebar-search-input-bg);
   padding: 0 calc(1.75rem - 1px) 0 calc(1.75rem - 1px);
+  border: #0f62fe 2px solid;
 }
 
 .searchInput:hover:not(:focus) {
   background: var(--sidebar-search-input-hover);
+  border: #0f62fe 2px solid;
 }
 
 .searchClearButton {
@@ -151,7 +153,7 @@ html[v0plex-theme="dark"] .sidebar {
 }
 
 .searchClearButton:focus {
-  outline: 2px solid var(--v0plex-focus);
+  /*outline: 2px solid var(--v0plex-focus);*/
   outline-offset: -2px;
 }
 
@@ -235,18 +237,20 @@ html[v0plex-theme="dark"] .sidebar {
 }
 
 .allArticlesHeader {
-  padding: 0.375rem 0.75rem;
+  padding: 0.275rem 0.75rem;
   font-size: 0.6875rem;
   font-weight: 600;
   color: var(--v0plex-text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.16px;
+  letter-spacing: 0;
   border-bottom: 1px solid var(--v0plex-border-subtle);
   margin-bottom: 0;
   line-height: 0.875rem;
+  margin-top: -2px;
   background: var(--sidebar-header-bg);
 }
 
+/* 移除所有默认的 border-left */
 .navItem {
   display: flex;
   align-items: center;
@@ -262,19 +266,32 @@ html[v0plex-theme="dark"] .sidebar {
   line-height: 1rem;
 }
 
-.navItem.active {
+/* 页面链接的激活状态 - 只显示蓝色左边框 */
+.navItem.active:not(.hasChildren) {
   background: var(--sidebar-item-selected-bg);
   color: var(--v0plex-text-primary);
-  border-left: 3px solid var(--sidebar-item-selected-border);
-  font-weight: 400;
+  border-left: 3px solid #0f62fe;
+  font-weight: 600;
 }
 
+/* 文件夹样式 - 永远不显示蓝色左边框 */
 .navItem.hasChildren {
   font-weight: 600;
   color: var(--v0plex-text-primary);
 }
 
+/* 文件夹激活时不要左边框 */
+.navItem.hasChildren.active {
+  background: transparent;
+  border-left: 3px solid transparent;
+}
+
 .navItem:hover:not(.active) {
+  background: var(--sidebar-nav-hover);
+}
+
+/* 文件夹的悬停效果 */
+.navItem.hasChildren:hover {
   background: var(--sidebar-nav-hover);
 }
 
@@ -282,6 +299,27 @@ html[v0plex-theme="dark"] .sidebar {
   text-decoration: none;
   color: inherit;
   flex: 1;
+}
+
+.navItemButton {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.navItemButton:focus {
+  /*outline: 2px solid var(--v0plex-focus);*/
+  outline-offset: -2px;
 }
 
 .navItemText {
@@ -292,6 +330,25 @@ html[v0plex-theme="dark"] .sidebar {
   margin-left: auto;
   padding-left: 0.375rem;
   color: var(--v0plex-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*padding: 0.125rem;*/
+  border-radius: 2px;
+  transition: color 70ms cubic-bezier(0.2, 0, 0.38, 0.9), background-color 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
+}
+
+.navItemChevron:hover {
+  color: var(--v0plex-text-primary);
+  background: var(--sidebar-nav-hover);
+}
+
+.navItemChevron:focus {
+  /*outline: 2px solid var(--v0plex-focus);*/
+  outline-offset: -2px;
 }
 
 .resizeHandle {

@@ -1,17 +1,17 @@
 "use client"
 
 import type React from "react"
-import styles from "./card-grid.module.css"
+import styles from "./fake-cds-card-grid.module.css"
 
 interface CardGridProps {
   children: React.ReactNode
   columns?: number
 }
 
-export default function CardGrid({ children, columns = 2 }: CardGridProps) {
+export default function FakeCdsCardGrid({ children, columns = 2 }: CardGridProps) {
   return (
     <div
-      className={styles.cardGrid}
+      className={styles.fakeCdsCardGrid}
       style={{
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
       }}

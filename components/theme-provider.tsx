@@ -1,9 +1,9 @@
 "use client"
 
 import type React from "react"
-import { createContext, useContext, useEffect, useState } from "react"
+import {createContext, useContext, useEffect, useState} from "react"
 
-type Theme = "light" | "dark"
+type Theme = "white" | "g100"
 
 interface ThemeContextType {
   theme: Theme
@@ -13,29 +13,29 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light")
+export function ThemeProvider({children}: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState<Theme>("white")
   const [mounted, setMounted] = useState(false)
-
+  
   useEffect(() => {
     setMounted(true)
-
+    
     
     try {
       const savedTheme = localStorage.getItem("carbon-theme")
-      if (savedTheme === "light" || savedTheme === "dark") {
+      if (savedTheme === "white" || savedTheme === "g100") {
         setTheme(savedTheme)
       } else {
         
-        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          setTheme("dark")
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: g100)").matches) {
+          setTheme("g100")
         }
       }
     } catch (error) {
       console.log("Error reading theme from localStorage:", error)
     }
   }, [])
-
+  
   useEffect(() => {
     if (mounted) {
       try {
@@ -48,12 +48,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       }
     }
   }, [theme, mounted])
-
+  
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"))
+    setTheme((prev) => (prev === "white" ? "g100" : "white"))
   }
-
-  return <ThemeContext.Provider value={{ theme, toggleTheme, mounted }}>{children}</ThemeContext.Provider>
+  
+  return <ThemeContext.Provider value={{theme, toggleTheme, mounted}}>{children}</ThemeContext.Provider>
 }
 
 export function useTheme() {

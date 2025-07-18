@@ -223,10 +223,24 @@ export default ({isMobileOpen, onCloseMobile}: CarbonSidebarProps) => {
   )
   
   const toggleExpanded = (path: string) => {
-    const currentlyExpanded = shouldExpand(pathname, navigationStructure.find(item => item.path === path) || {
-      title: '',
-      path: ''
-    }, manuallyExpandedItems, manuallyCollapsedItems)
+    // 递归查找指定路径的菜单项
+    const findItemByPath = (items: NavItem[], targetPath: string): NavItem | null => {
+      for (const item of items) {
+        if (item.path === targetPath) {
+          return item
+        }
+        if (item.children) {
+          const found = findItemByPath(item.children, targetPath)
+          if (found) return found
+        }
+      }
+      return null
+    }
+    
+    const foundItem = findItemByPath(navigationStructure, path)
+    if (!foundItem) return // 如果没找到菜单项，直接返回
+    
+    const currentlyExpanded = shouldExpand(pathname, foundItem, manuallyExpandedItems, manuallyCollapsedItems)
     
     if (currentlyExpanded) {
       // 如果当前是展开的，收起它

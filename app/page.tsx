@@ -13,7 +13,7 @@ export default function HomePage() {
           <h1 style={{
             fontWeight: 'medium',
             fontFamily: 'IBM Plex Mono',
-            fontSize: '1rem',
+            fontSize: '3rem',
             marginTop: '1rem',
             
           }}>bibliography</h1>

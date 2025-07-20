@@ -566,3 +566,54 @@ aside::-webkit-scrollbar-thumb:hover {
     overflow-x: hidden !important;
   }
 }
+
+/* 在文件末尾添加或修改手机端样式 */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto; /* 只保留主滚动条 */
+  }
+
+  .v0plex-content {
+    padding: 1rem !important;
+    padding-top: 4rem !important;
+    overflow: visible !important; /* 移除内层滚动 */
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .page-typography-content {
+    overflow: visible !important; /* 移除内层滚动 */
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* 确保主容器不产生滚动条 */
+  main {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* 如果有侧边栏容器 */
+  .sidebar-container {
+    overflow: visible !important;
+  }
+}
+
+/* 通用修复 - 移除可能导致双滚动条的样式 */
+.v0plex-content,
+.page-typography-content {
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* 确保只有body有滚动条 */
+* {
+  overflow-x: visible !important;
+}
+
+*:not(html):not(body):not(pre):not(.sidebar):not(.sidebar *) {
+  overflow-y: visible !important;
+}

@@ -139,7 +139,7 @@ export default function BlogSystemConceptPage() {
                   <ListItem>
                     <>是否引入了新型非主流技术栈</>
                     <UnorderedList nested>
-                      <ListItem>前端社区3月一更新，各类舞文弄墨的新技术栈无法形成广泛共识</ListItem>
+                      <ListItem>前端社区平均3月一大更新，各类舞文弄墨的新技术栈无法形成广泛共识</ListItem>
                     </UnorderedList>
                   </ListItem>
                 </UnorderedList>

@@ -1,0 +1,155 @@
+/* 容器基础样式 */
+.container {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0.38, 0.9);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 主题样式 - 浅色主题 */
+.container.theme-white {
+  background-color: #f4f4f4;
+  border: 1px solid #e0e0e0;
+}
+
+/* 主题样式 - 深色主题 */
+.container.theme-g100 {
+  background-color: #161616;
+  border: 1px solid #393939;
+}
+
+/* 悬停效果 */
+.container.hover.theme-white {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.container.hover.theme-g100 {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 图片容器 */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 宽高比设置 */
+.imageContainer.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.imageContainer.aspect-16\:9 {
+  aspect-ratio: 16 / 9;
+}
+
+.imageContainer.aspect-4\:3 {
+  aspect-ratio: 4 / 3;
+}
+
+.imageContainer.aspect-3\:2 {
+  aspect-ratio: 3 / 2;
+}
+
+.imageContainer.aspect-auto {
+  aspect-ratio: auto;
+}
+
+/* 图片样式 */
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* 改为contain，确保图片不被剪裁 */
+  display: block;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.image.loaded {
+  opacity: 1;
+}
+
+/* auto模式下的图片样式 */
+.aspect-auto .image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 占位符样式 */
+.placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* auto模式下的占位符 */
+.aspect-auto .placeholder {
+  position: static;
+  height: 200px;
+}
+
+/* 占位符主题样式 */
+.placeholder.theme-white {
+  background-color: #e8e8e8;
+  color: #6f6f6f;
+}
+
+.placeholder.theme-g100 {
+  background-color: #262626;
+  color: #a8a8a8;
+}
+
+/* 图片说明 */
+.caption {
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  line-height: 1.33;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.caption.theme-white {
+  color: #525252;
+  background-color: #f4f4f4;
+  border-top: 1px solid #e0e0e0;
+}
+
+.caption.theme-g100 {
+  color: #c6c6c6;
+  background-color: #262626;
+  border-top: 1px solid #393939;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .container {
+    margin: 1rem 0;
+  }
+
+  .caption {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.6875rem;
+  }
+}
+
+/* 高分辨率屏幕优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}

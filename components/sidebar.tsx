@@ -365,7 +365,9 @@ export default ({isMobileOpen, onCloseMobile}: CarbonSidebarProps) => {
           
           <div className={styles.directoryStructure}>
             <div className={styles.allArticlesHeader}>All Articles</div>
-            {navigationStructure.map((item) => renderNavItem(item))}
+            <div className={styles.directoryStructureContent}>
+              {navigationStructure.map((item) => renderNavItem(item))}
+            </div>
           </div>
         </div>
         

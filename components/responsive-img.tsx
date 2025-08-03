@@ -48,7 +48,6 @@ export default function ResponsiveImage({
   const containerClasses = [
     styles.container,
     styles[`theme-${theme}`],
-    styles[`aspect-${aspectRatio}`],
     isHovering ? styles.hover : '',
     className
   ].filter(Boolean).join(' ')
@@ -66,37 +65,39 @@ export default function ResponsiveImage({
       onMouseLeave={() => setIsHovering(false)}
     >
       <div className={imageContainerClasses}>
-        {hasError ? (
-          <div className={`${styles.placeholder} ${styles[`theme-${theme}`]}`}>
-            <span>图片加载失败</span>
-          </div>
-        ) : (
-          <>
-            {!isLoaded && (
-              <div className={`${styles.placeholder} ${styles[`theme-${theme}`]}`}>
-                <span>加载中...</span>
-              </div>
-            )}
-            <Image
-              src={src}
-              alt={alt}
-              width={width}
-              height={height}
-              className={`${styles.image} ${isLoaded && !hasError ? styles.loaded : ''}`}
-              onLoad={() => setIsLoaded(true)}
-              onError={() => {
-                console.error('Image load error:', src)
-                setHasError(true)
-                setIsLoaded(true)
-              }}
-              priority={priority}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-              style={{
-                objectFit: 'contain' // 确保图片不被裁剪或拉伸
-              }}
-            />
-          </>
-        )}
+        <div className={styles.imageContainerContent}>
+          {hasError ? (
+            <div className={`${styles.placeholder} ${styles[`theme-${theme}`]}`}>
+              <span>图片加载失败</span>
+            </div>
+          ) : (
+            <>
+              {!isLoaded && (
+                <div className={`${styles.placeholder} ${styles[`theme-${theme}`]}`}>
+                  <span>加载中...</span>
+                </div>
+              )}
+              <Image
+                src={src}
+                alt={alt}
+                width={width}
+                height={height}
+                className={`${styles.image} ${isLoaded && !hasError ? styles.loaded : ''}`}
+                onLoad={() => setIsLoaded(true)}
+                onError={() => {
+                  console.error('Image load error:', src)
+                  setHasError(true)
+                  setIsLoaded(true)
+                }}
+                priority={priority}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                style={{
+                  objectFit: 'contain'
+                }}
+              />
+            </>
+          )}
+        </div>
       </div>
       {caption && (
         <figcaption className={`${styles.caption} ${styles[`theme-${theme}`]}`}>

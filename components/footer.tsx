@@ -16,16 +16,7 @@ export default function Footer() {
           <div className={styles.links}>
             <div className={styles.linkGroup}>
               <Link href="#" className={styles.link}>
-                Contact
-              </Link>
-              <Link href="#" className={styles.link}>
-                Privacy
-              </Link>
-              <Link href="#" className={styles.link}>
-                Terms
-              </Link>
-              <Link href="#" className={styles.link}>
-                Accessibility
+                Youtube
               </Link>
             </div>
             <div className={styles.linkGroup}>
@@ -42,14 +33,14 @@ export default function Footer() {
           <div className={styles.info}>
             <p className={styles.infoText}>
               Have questions? Email us at{" "}
-              <Link href="mailto:test@example.com" className={styles.emailLink}>
-                test@example.com
+              <Link href="sjl473@outlook.com" className={styles.emailLink}>
+                sjl473@outlook.com
               </Link>
             </p>
             <div className={styles.meta}>
-              <span>Version 1.82.0</span>
-              <span>Last updated May 22, 2025</span>
-              <span>© 2025 Test123456</span>
+              <span>version: preview test</span>
+              <span>last updated Aug 3rd, 2025</span>
+              <span>© 2025 sjl473, all right reserved.</span>
             </div>
           </div>
         </div>

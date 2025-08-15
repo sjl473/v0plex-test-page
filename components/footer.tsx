@@ -18,13 +18,16 @@ export default function Footer() {
               <Link href="#" className={styles.link}>
                 Youtube
               </Link>
+              <Link href="#" className={styles.link}>
+                Steam
+              </Link>
             </div>
             <div className={styles.linkGroup}>
               <Link href="#" className={styles.link}>
                 GitHub
               </Link>
               <Link href="#" className={styles.link}>
-                Twitter
+                Twitter/X
               </Link>
             </div>
           </div>
@@ -32,7 +35,7 @@ export default function Footer() {
           {}
           <div className={styles.info}>
             <p className={styles.infoText}>
-              Have questions? Email us at{" "}
+              Have questions? Email at {" "}
               <Link href="sjl473@outlook.com" className={styles.emailLink}>
                 sjl473@outlook.com
               </Link>

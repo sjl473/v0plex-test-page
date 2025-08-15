@@ -44,6 +44,7 @@ const navigationStructure: NavItem[] = [
           {title: "Exampled Use Case 1", path: "/v0plex/example_pages/test-1"},
           {title: "Exampled Use Case 2", path: "/v0plex/example_pages/test-2"},
           {title: "Exampled Use Case 3", path: "/v0plex/example_pages/test-3"},
+          {title: "Exampled Use Case 4", path: "/v0plex/example_pages/ibm-carbon-table"}
         ]
       },
       {
@@ -157,7 +158,7 @@ export default ({isMobileOpen, onCloseMobile}: CarbonSidebarProps) => {
   const [searchQuery, setSearchQuery] = useState("")
   const [manuallyExpandedItems, setManuallyExpandedItems] = useState<Set<string>>(new Set())
   const [manuallyCollapsedItems, setManuallyCollapsedItems] = useState<Set<string>>(new Set())
-  const [sidebarWidth, setSidebarWidth] = useState(256)
+  const [sidebarWidth, setSidebarWidth] = useState(400)
   const [isResizing, setIsResizing] = useState(false)
   const sidebarRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()

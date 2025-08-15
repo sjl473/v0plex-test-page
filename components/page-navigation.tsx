@@ -15,6 +15,7 @@ const PAGE_ROUTES = [
   "/v0plex/example_pages/test-1",
   "/v0plex/example_pages/test-2",
   "/v0plex/example_pages/test-3",
+  "/v0plex/example_pages/ibm-carbon-table",
   // "/v0plex/v0plex_components",
   "/v0plex/v0plex_components/todo",
   // "/before_graduate",
@@ -34,7 +35,9 @@ const PAGE_TITLES: Record<string, string> = {
   // "/v0plex/example_pages": "v0plex Example Pages",
   "/v0plex/example_pages/test-1": "Exampled Use Case 1",
   "/v0plex/example_pages/test-2": "Exampled Use Case 2",
+
   "/v0plex/example_pages/test-3": "Exampled Use Case 3",
+  "/v0plex/example_pages/ibm-carbon-table": "IBM Carbon Design Systems Table",
   // "/v0plex/v0plex_components": "v0plex Components",
   "/v0plex/v0plex_components/todo": "To Be Continued",
   // "/before_graduate": "Chinese Archive Blogs Before 2022",

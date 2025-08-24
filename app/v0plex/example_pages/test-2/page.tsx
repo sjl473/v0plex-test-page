@@ -172,7 +172,7 @@ export default function Test2Page() {
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen></iframe>
           <h2>JavaScript Fundamentals</h2>
-          
+          <div className="table-responsive-wrapper">
           <Theme as="section" theme={theme}>
             <DataTable rows={jsConceptsRows} headers={jsConceptsHeaders}>
               {({ rows, headers, getTableProps, getHeaderProps, getRowProps }) => (
@@ -206,7 +206,9 @@ export default function Test2Page() {
                 </Table>
               )}
             </DataTable>
+            
           </Theme>
+          </div>
           
           <h2>Frontend Framework Comparison</h2>
           
@@ -214,7 +216,7 @@ export default function Test2Page() {
             Here's a comprehensive comparison of popular frontend frameworks with multiple columns to test table
             responsiveness:
           </p>
-          
+          <div className="table-responsive-wrapper">
           <Theme as="section" theme={theme}>
             <DataTable rows={frameworkRows} headers={frameworkHeaders}>
               {({ rows, headers, getTableProps, getHeaderProps, getRowProps }) => (
@@ -249,6 +251,7 @@ export default function Test2Page() {
               )}
             </DataTable>
           </Theme>
+          </div>
           
           <h3>Code Examples</h3>
           

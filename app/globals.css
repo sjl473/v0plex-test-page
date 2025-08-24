@@ -38,6 +38,9 @@ body[v0plex-theme="white"] {
   --v0plex-button-secondary: #393939;
   --v0plex-text-on-color: #ffffff;
   --v0plex-focus: #0f62fe;
+  --v0plex-scrollbar-track: #f4f4f4;
+  --v0plex-scrollbar-thumb: #c6c6c6;
+  --v0plex-scrollbar-thumb-hover: #a8a8a8;
 
   /* Custom sidebar colors for white theme */
   --sidebar-search-bg: #e8e8e8;
@@ -74,6 +77,9 @@ body[v0plex-theme="g100"] {
   --v0plex-button-secondary: #6f6f6f;
   --v0plex-text-on-color: #ffffff;
   --v0plex-focus: #0f62fe;
+  --v0plex-scrollbar-track: #262626;
+  --v0plex-scrollbar-thumb: #525252;
+  --v0plex-scrollbar-thumb-hover: #6f6f6f;
 
   /* Custom sidebar colors for g100 theme */
   --sidebar-search-bg: #262626;
@@ -188,8 +194,55 @@ body[v0plex-theme="g100"] {
   margin-bottom: 0.25rem;
 }
 
+/* 手机端专用表格滚动样式 - 只在手机端生效 */
+@media (max-width: 768px) {
+  /* 表格容器样式 */
+  .table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--v0plex-border-subtle);
+    border-radius: 0;
+  }
 
+  .table-responsive-wrapper .cds--data-table-container,
+  .table-responsive-wrapper .cds--table-container {
+    overflow-x: visible; /* 让包装器处理滚动 */
+  }
 
+  .table-responsive-wrapper .cds--data-table,
+  .table-responsive-wrapper .cds--table {
+    min-width: max-content; /* 表格根据内容确定最小宽度 */
+    table-layout: auto; /* 手机端使用自动布局 */
+  }
+
+  /* 确保表格单元格不被压缩 */
+  .table-responsive-wrapper .cds--data-table th,
+  .table-responsive-wrapper .cds--data-table td,
+  .table-responsive-wrapper .cds--table th,
+  .table-responsive-wrapper .cds--table td {
+    white-space: nowrap;
+    min-width: fit-content;
+  }
+
+  /* 自定义滚动条样式 */
+  .table-responsive-wrapper::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .table-responsive-wrapper::-webkit-scrollbar-track {
+    background: var(--v0plex-scrollbar-track);
+  }
+
+  .table-responsive-wrapper::-webkit-scrollbar-thumb {
+    background: var(--v0plex-scrollbar-thumb);
+    border-radius: 4px;
+  }
+
+  .table-responsive-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--v0plex-scrollbar-thumb-hover);
+  }
+}
 
 * {
   text-indent: 0 !important;
@@ -210,7 +263,6 @@ footer {
 .page-typography-content * {
   text-indent: 0 !important;
 }
-
 
 .page-typography-content > * {
   text-indent: 0 !important;
@@ -421,8 +473,6 @@ aside::-webkit-scrollbar-thumb:hover {
     box-sizing: border-box !important;
   }
 
-
-
   header {
     position: fixed !important;
     top: 0;
@@ -432,7 +482,6 @@ aside::-webkit-scrollbar-thumb:hover {
     background: var(--v0plex-background);
     border-bottom: 1px solid var(--v0plex-border-subtle);
   }
-
 
   header input {
     width: 200px !important;
@@ -509,7 +558,6 @@ aside::-webkit-scrollbar-thumb:hover {
     width: 100% !important;
     max-width: 100% !important;
   }
-
 
   header {
     padding: 0 0.5rem !important;
@@ -588,6 +636,14 @@ aside::-webkit-scrollbar-thumb:hover {
   overflow-x: visible !important;
 }
 
-*:not(html):not(body):not(pre):not(.sidebar):not(.sidebar *) {
+*:not(html):not(body):not(pre):not(.sidebar):not(.sidebar *):not(.table-responsive-wrapper):not(.cds--data-table-container):not(.cds--table-container) {
   overflow-y: visible !important;
+}
+
+/* 表格容器允许水平滚动（仅在手机端） */
+@media (max-width: 768px) {
+  .table-responsive-wrapper {
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+  }
 }

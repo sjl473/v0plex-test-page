@@ -157,6 +157,7 @@ export default function IBMCarbonTable() {
         <div className="v0plex-content">
           <div className="page-typography-content">
             <h2>简单 DataTable 示例</h2>
+            <div className="table-responsive-wrapper">
             <Theme as="section" theme={theme}>
               <DataTable rows={rows.slice(0, 3)} headers={simpleHeaders}>
                 {({ rows, headers, getTableProps, getHeaderProps, getRowProps }) => (
@@ -191,8 +192,10 @@ export default function IBMCarbonTable() {
                 )}
               </DataTable>
             </Theme>
+            </div>
             
             <h2>完整 DataTable 示例</h2>
+            <div className="table-responsive-wrapper">
             <Theme as="section" theme={theme}>
               <DataTable rows={complexRows} headers={fullHeaders}>
                 {({ rows, headers, getTableProps, getHeaderProps, getRowProps }) => (
@@ -227,8 +230,9 @@ export default function IBMCarbonTable() {
                 )}
               </DataTable>
             </Theme>
-            
+            </div>
             <h2>标准表格示例</h2>
+            <div className="table-responsive-wrapper">
             <Theme as="section" theme={theme}>
               <Table
                 aria-label="sample table"
@@ -269,6 +273,7 @@ export default function IBMCarbonTable() {
                 </TableBody>
               </Table>
             </Theme>
+          </div>
           </div>
         </div>
       </GlobalTheme>

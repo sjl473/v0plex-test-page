@@ -167,7 +167,7 @@ export default function Test3Page() {
                   </p>
                   
                   <h2>Mixed Content Integration</h2>
-                  
+                  <div className="table-responsive-wrapper">
                   <Theme theme={theme}>
                       <DataTable rows={tableData} headers={headers}>
                           {({ rows, headers, getTableProps, getHeaderProps, getRowProps }) => (
@@ -202,7 +202,7 @@ export default function Test3Page() {
                           )}
                       </DataTable>
                   </Theme>
-                  
+                  </div>
                   <h3>Visual Representation</h3>
                   
                   <p>Combining mathematical concepts with visual elements enhances understanding and practical

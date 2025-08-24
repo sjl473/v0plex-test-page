@@ -189,18 +189,7 @@ body[v0plex-theme="g100"] {
 }
 
 
-.page-typography-content table {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: auto;
-  display: block;
-  white-space: nowrap;
-}
 
-.page-typography-content table tbody {
-  display: table;
-  width: 100%;
-}
 
 * {
   text-indent: 0 !important;
@@ -433,14 +422,6 @@ aside::-webkit-scrollbar-thumb:hover {
   }
 
 
-  .content-table {
-    font-size: 0.75rem;
-  }
-
-  .content-table th,
-  .content-table td {
-    padding: 0.5rem;
-  }
 
   header {
     position: fixed !important;
@@ -506,13 +487,6 @@ aside::-webkit-scrollbar-thumb:hover {
     box-sizing: border-box !important;
   }
 
-  .page-typography-content table {
-    font-size: 0.75rem;
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 768px) {

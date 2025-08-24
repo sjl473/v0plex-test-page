@@ -13,7 +13,6 @@ import {
   TableBody,
   TableCell,
 } from '@carbon/react';
-import AlignedTable from '@/components/carbon_table/table';
 import MathFormula from "@/components/math-formula";
 import React from "react";
 
@@ -23,22 +22,42 @@ export default function IBMCarbonTable() {
   const rows = [
     {
       id: 'a',
-      name: 'Load balancer 1',
+      name: 'Load balancer 1 hdfsjklahdjklfasjkhhjhk获得解放哈斯捷克洛夫很快垃圾货到付款三角鞍蛤放大镜看',
       status: 'Disabled',
+      rule: 'Round robin',
+      other: 'Test data',
     },
     {
       id: 'b',
       name: 'Load balancer 2',
       status: 'Starting',
+      rule: 'DNS delegation',
+      other: 'Test data',
     },
     {
       id: 'c',
       name: 'Load balancer 3',
       status: 'Active',
+      rule: 'Round robin',
+      other: 'Test data',
+    },
+    {
+      id: 'd',
+      name: 'Load balancer 4',
+      status: 'Disabled',
+      rule: 'DNS delegation',
+      other: 'Test data',
+    },
+    {
+      id: 'e',
+      name: 'Load balancer 5',
+      status: 'Active',
+      rule: 'Round robin',
+      other: 'Test data',
     },
   ];
   
-  const headers = [
+  const simpleHeaders = [
     {
       key: 'name',
       header: 'Name',
@@ -49,14 +68,97 @@ export default function IBMCarbonTable() {
     },
   ];
   
+  const fullHeaders = [
+    {
+      key: 'name',
+      header: 'Name',
+    },
+    {
+      key: 'rule',
+      header: 'Rule',
+    },
+    {
+      key: 'status',
+      header: 'Status',
+    },
+    {
+      key: 'other',
+      header: 'Other',
+    },
+    {
+      key: 'example',
+      header: 'Example',
+    },
+  ];
+  
+  // 复杂内容的表格数据
+  const complexRows = [
+    {
+      id: '1',
+      name: 'Load Balancer 1',
+      rule: 'Round robin',
+      status: 'Starting',
+      other: 'Test',
+      example: '22',
+    },
+    {
+      id: '2',
+      name: 'Load Balancer 2',
+      rule: 'DNS delegation',
+      status: 'Active',
+      other: 'Test',
+      example: '22',
+    },
+    {
+      id: '3',
+      name: 'Load Balancer 3',
+      rule: <CodeBlock inline language="TypeScript">Vector3D</CodeBlock>,
+      status: <MathFormula formula="\sum_{i=1}^{n} i = \frac{n(n+1)}{2}" />,
+      other: 'Test',
+      example: '22',
+    },
+    {
+      id: '4',
+      name: 'Load Balancer 4',
+      rule: 'Round robin',
+      status: 'Disabled',
+      other: 'Test',
+      example: '22',
+    },
+    {
+      id: '5',
+      name: 'Load Balancer 5',
+      rule: 'Round robin',
+      status: 'Disabled',
+      other: 'Test',
+      example: '22',
+    },
+    {
+      id: '6',
+      name: 'Load Balancer 6',
+      rule: 'Round robin',
+      status: 'Disabled',
+      other: 'Test',
+      example: '22',
+    },
+    {
+      id: '7',
+      name: 'Load Balancer 7',
+      rule: 'Round robin',
+      status: 'Disabled',
+      other: 'Test',
+      example: '22',
+    },
+  ];
+  
   return (
     <>
       <GlobalTheme theme={theme}>
-        <Theme as="section" theme={theme}>
         <div className="v0plex-content">
           <div className="page-typography-content">
-            <AlignedTable>
-              <DataTable rows={rows} headers={headers}>
+            <h2>简单 DataTable 示例</h2>
+            <Theme as="section" theme={theme}>
+              <DataTable rows={rows.slice(0, 3)} headers={simpleHeaders}>
                 {({ rows, headers, getTableProps, getHeaderProps, getRowProps }) => (
                   <Table {...getTableProps()} size={"sm"} stickyHeader={false}>
                     <TableHead>
@@ -88,12 +190,49 @@ export default function IBMCarbonTable() {
                   </Table>
                 )}
               </DataTable>
-            </AlignedTable>
+            </Theme>
             
-            <AlignedTable >
+            <h2>完整 DataTable 示例</h2>
+            <Theme as="section" theme={theme}>
+              <DataTable rows={complexRows} headers={fullHeaders}>
+                {({ rows, headers, getTableProps, getHeaderProps, getRowProps }) => (
+                  <Table {...getTableProps()} size={"sm"} stickyHeader={true} aria-label="复杂数据表格示例">
+                    <TableHead>
+                      <TableRow>
+                        {headers.map((header) => {
+                          const headerProps = getHeaderProps({ header });
+                          const { key, ...restHeaderProps } = headerProps;
+                          return (
+                            <TableHeader key={key} {...restHeaderProps}>
+                              {header.header}
+                            </TableHeader>
+                          );
+                        })}
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map((row) => {
+                        const rowProps = getRowProps({ row });
+                        const { key, ...restRowProps } = rowProps;
+                        return (
+                          <TableRow key={key} {...restRowProps}>
+                            {row.cells.map((cell) => (
+                              <TableCell key={cell.id}>{cell.value}</TableCell>
+                            ))}
+                          </TableRow>
+                        );
+                      })}
+                    </TableBody>
+                  </Table>
+                )}
+              </DataTable>
+            </Theme>
+            
+            <h2>标准表格示例</h2>
+            <Theme as="section" theme={theme}>
               <Table
                 aria-label="sample table"
-                size="lg" stickyHeader={false}
+                size="sm" stickyHeader={false}
               >
                 <TableHead>
                   <TableRow>
@@ -127,44 +266,11 @@ export default function IBMCarbonTable() {
                     <TableCell>Test</TableCell>
                     <TableCell>22</TableCell>
                   </TableRow>
-                  <TableRow>
-                    <TableCell>Load Balancer 4</TableCell>
-                    <TableCell>Round robin</TableCell>
-                    <TableCell>Disabled</TableCell>
-                    <TableCell>Test</TableCell>
-                    <TableCell>22</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Load Balancer 5</TableCell>
-                    <TableCell>Round robin</TableCell>
-                    <TableCell>Disabled</TableCell>
-                    <TableCell>Test</TableCell>
-                    <TableCell>22</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Load Balancer 6</TableCell>
-                    <TableCell>Round robin</TableCell>
-                    <TableCell>Disabled</TableCell>
-                    <TableCell>Test</TableCell>
-                    <TableCell>22</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Load Balancer 7</TableCell>
-                    <TableCell>Round robin</TableCell>
-                    <TableCell>Disabled</TableCell>
-                    <TableCell>Test</TableCell>
-                    <TableCell>22</TableCell>
-                  </TableRow>
                 </TableBody>
               </Table>
-              
-            </AlignedTable>
-            <AlignedTable>
-            
-            </AlignedTable>
+            </Theme>
           </div>
         </div>
-          </Theme>
       </GlobalTheme>
     </>
   )

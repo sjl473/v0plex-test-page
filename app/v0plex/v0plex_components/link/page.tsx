@@ -3,9 +3,8 @@
 import {GlobalTheme} from "@carbon/react"
 import {useTheme} from "@/components/theme-provider"
 import Link from "@/components/link"
-import CodeBlock from "@/components/code-block";
 
-export default function HomePage() {
+export default function LinkExample() {
   const {theme} = useTheme()
   
   return (
@@ -14,7 +13,8 @@ export default function HomePage() {
         <div className="page-typography-content">
           
           <div>
-            <h2>v0plex components: @link</h2>
+            <br></br>
+            <h1>v0plex components: @link</h1>
             
             <div style={{marginBottom: "1rem"}}>
               <Link
@@ -66,7 +66,7 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-
+        
         </div>
       </div>
     </GlobalTheme>

@@ -70,11 +70,6 @@ export default function HomePage() {
             </UnorderedList>
           </Theme>
           
-          <h3>Education</h3>
-          <p>
-            BNBU / HKBU in Computer Science
-          </p>
-
           <h3>Skills</h3>
           <Theme as="section" theme={theme}>
             <UnorderedList>
@@ -90,7 +85,7 @@ export default function HomePage() {
             <UnorderedList>
               <ListItem>Aquarium keeping: passionate about freshwater aquariums and aquatic
                 plants</ListItem>
-              <ListItem>Clash Royale, Clash of Clans, Brawl Stars</ListItem>
+              <ListItem>Clash Royal, Clash of Clans, Brawl Stars</ListItem>
               <ListItem>City Skylines I</ListItem>
               <ListItem>Guns N' Roses, Daft Punk, Chemical Brothers, Ye, Nirvana...</ListItem>
             </UnorderedList>

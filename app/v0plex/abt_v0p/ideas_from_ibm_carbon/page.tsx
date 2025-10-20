@@ -3,6 +3,7 @@
 import {GlobalTheme, ListItem, Theme, UnorderedList} from "@carbon/react"
 import {useTheme} from "@/components/theme-provider"
 import PageDates from "@/components/last-updated-at"
+import Link from "@/components/link"
 export default function BlogSystemConceptPage() {
   const {theme} = useTheme()
   
@@ -40,8 +41,8 @@ export default function BlogSystemConceptPage() {
             />
             
             <p>
-              从2023年年末开始，我一直想借鉴<a href="https://carbondesignsystem.com/" target="_blank"
-                                              rel="noopener noreferrer"><strong>Carbon Design</strong></a>做一个React博客页面，因为我很欣赏IBM
+              从2023年年末开始，我一直想借鉴<Link href="https://carbondesignsystem.com/" target="_blank"
+                                                 rel="noopener noreferrer"><strong>Carbon Design</strong></Link>做一个React博客页面，因为我很欣赏IBM
               Design的UI和Grid System。但是限于自己前端开发的水平，一直没有形成什么项目。
             </p>
             

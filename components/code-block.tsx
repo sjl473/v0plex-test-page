@@ -1,20 +1,101 @@
-import { useState, useEffect, useRef } from "react"
-import { Copy, Checkmark } from "@carbon/icons-react"
+"use client"
 
-interface CarbonCodeBlockProps {
-  children: string
+import React, {useEffect, useState} from "react"
+import {PrismLight as SyntaxHighlighter} from "react-syntax-highlighter"
+import {vscDarkPlus, vs} from "react-syntax-highlighter/dist/esm/styles/prism"
+import {Copy, Checkmark} from "@carbon/icons-react"
+import {useTheme} from "@/components/theme-provider"
+import styles from "./code-block.module.css"
+
+import typescript from 'react-syntax-highlighter/dist/esm/languages/prism/typescript'
+import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javascript'
+import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx'
+import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx'
+import css from 'react-syntax-highlighter/dist/esm/languages/prism/css'
+import json from 'react-syntax-highlighter/dist/esm/languages/prism/json'
+import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash'
+import markdown from 'react-syntax-highlighter/dist/esm/languages/prism/markdown'
+import sql from 'react-syntax-highlighter/dist/esm/languages/prism/sql'
+import python from 'react-syntax-highlighter/dist/esm/languages/prism/python'
+import csharp from 'react-syntax-highlighter/dist/esm/languages/prism/csharp'
+import java from 'react-syntax-highlighter/dist/esm/languages/prism/java'
+import swift from 'react-syntax-highlighter/dist/esm/languages/prism/swift'
+import kotlin from 'react-syntax-highlighter/dist/esm/languages/prism/kotlin'
+import rust from 'react-syntax-highlighter/dist/esm/languages/prism/rust'
+import c from 'react-syntax-highlighter/dist/esm/languages/prism/c'
+import cpp from 'react-syntax-highlighter/dist/esm/languages/prism/cpp'
+import go from 'react-syntax-highlighter/dist/cjs/languages/prism/go'
+
+
+SyntaxHighlighter.registerLanguage('typescript', typescript)
+SyntaxHighlighter.registerLanguage('javascript', javascript)
+SyntaxHighlighter.registerLanguage('jsx', jsx)
+SyntaxHighlighter.registerLanguage('tsx', tsx)
+SyntaxHighlighter.registerLanguage('css', css)
+SyntaxHighlighter.registerLanguage('json', json)
+SyntaxHighlighter.registerLanguage('bash', bash)
+SyntaxHighlighter.registerLanguage('markdown', markdown)
+SyntaxHighlighter.registerLanguage('sql', sql)
+SyntaxHighlighter.registerLanguage('python', python)
+SyntaxHighlighter.registerLanguage('csharp', csharp)
+SyntaxHighlighter.registerLanguage('java', java)
+SyntaxHighlighter.registerLanguage('swift', swift)
+SyntaxHighlighter.registerLanguage('kotlin', kotlin)
+SyntaxHighlighter.registerLanguage('rust', rust)
+SyntaxHighlighter.registerLanguage('c', c)
+SyntaxHighlighter.registerLanguage('cpp', cpp)
+SyntaxHighlighter.registerLanguage('go', go)
+
+interface CodeBlockProps {
+  children?: string
   language?: string
   inline?: boolean
+  showLineNumbers?: boolean
+  filePath?: string
 }
 
-export default function CodeBlock({ children, language = "text", inline = false }: CarbonCodeBlockProps) {
+export default function CodeBlock({
+                                    children,
+                                    language = "text",
+                                    inline = false,
+                                    showLineNumbers = false,
+                                    filePath
+                                  }: CodeBlockProps) {
   const [copied, setCopied] = useState(false)
-  const [parentFontSize, setParentFontSize] = useState(16)
-  const codeRef = useRef<HTMLElement>(null)
+  const [codeContent, setCodeContent] = useState<string>(children || "")
+  const [isLoading, setIsLoading] = useState(!!filePath)
+  const [error, setError] = useState<string | null>(null)
+  const { theme } = useTheme()
+  const isDarkTheme = theme === "g100"
+  const themeClass = isDarkTheme ? styles.darkTheme : styles.lightTheme
+
+  const codeStyle = isDarkTheme ? vscDarkPlus : vs
+
+  useEffect(() => {
+    if (filePath) {
+      setIsLoading(true)
+      fetch(filePath)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to load code file: ${response.statusText}`)
+          }
+          return response.text()
+        })
+        .then(code => {
+          setCodeContent(code)
+          setIsLoading(false)
+        })
+        .catch(err => {
+          setError(err.message)
+          setIsLoading(false)
+          console.error("Error loading code file:", err)
+        })
+    }
+  }, [filePath])
   
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(children)
+      await navigator.clipboard.writeText(codeContent)
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch (err) {
@@ -22,142 +103,63 @@ export default function CodeBlock({ children, language = "text", inline = false 
     }
   }
   
-  useEffect(() => {
-    if (inline && codeRef.current) {
-      // 查找父元素的字体大小
-      let parent = codeRef.current.parentElement
-      while (parent) {
-        const computedStyle = window.getComputedStyle(parent)
-        const tagName = parent.tagName.toLowerCase()
-        
-        // 如果找到标题标签，使用其字体大小
-        if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(tagName)) {
-          const fontSize = parseFloat(computedStyle.fontSize)
-          setParentFontSize(fontSize)
-          break
-        }
-        
-        // 如果是段落或其他文本元素，也可以使用其字体大小
-        if (['p', 'div', 'span'].includes(tagName)) {
-          const fontSize = parseFloat(computedStyle.fontSize)
-          if (fontSize > 0) {
-            setParentFontSize(fontSize)
-            break
-          }
-        }
-        
-        parent = parent.parentElement
-      }
-    }
-  }, [inline])
-  
-  // 根据父元素字体大小计算内联代码块的样式
-  const getInlineStyles = () => {
-    const baseFontSize = parentFontSize
-    const scaleFactor = 0.85 // 代码块字体比父元素小15%
-    const codeFontSize = baseFontSize * scaleFactor
-    
-    // 根据字体大小动态计算padding和其他属性
-    const padding = `${codeFontSize * 0.1}px ${codeFontSize * 0.2}px`
-    const margin = `0 ${codeFontSize * 0.1}px`
-    const borderRadius = Math.max(2, codeFontSize * 0.1)
-    
-    return {
-      background: "#121619",
-      color: "var(--v0plex-text-inverse)",
-      padding: "0.1rem 0.2rem", // 减少内边距
-      borderRadius: `${borderRadius}px`,
-      fontSize: `${codeFontSize}px`,
-      fontFamily: '"IBM Plex Mono", monospace',
-      display: "inline-block",
-      margin,
-      // verticalAlign: "-10px",
-      lineHeight: 1,
-    }
-  }
-  
   if (inline) {
     return (
-      <code
-        ref={codeRef}
-        style={getInlineStyles()}
-      >
-        {children}
+      <code className={`${styles.inlineCode} ${themeClass}`}>
+        {children || codeContent}
       </code>
     )
   }
   
-  const getHighlightedCode = () => {
-    return children
+  if (isLoading) {
+    return (
+      <div className={`${styles.codeBlockContainer} ${themeClass}`}>
+        <div className={styles.loadingContainer}>
+          Loading code...
+        </div>
+      </div>
+    )
+  }
+  
+  if (error) {
+    return (
+      <div className={`${styles.codeBlockContainer} ${themeClass} ${styles.errorContainer}`}>
+        Error loading code: {error}
+      </div>
+    )
   }
   
   return (
-    <div style={{ marginBottom: "1.5rem", position: "relative" }}>
-      <div
-        style={{
-          background: "#21272a",
-          color: "#f4f4f4",
-          overflow: "hidden",
-          position: "relative",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "0.3rem 1rem",
-            background: "#21272a",
-          }}
-        >
-          <span
-            style={{
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              color: "#c6c6c6",
-            }}
-          >
-            {language}
+    <div className={`${styles.codeBlockContainer} ${themeClass}`}>
+      <div className={styles.codeBlockWrapper}>
+        <div className={styles.codeBlockHeader}>
+          <span className={styles.codeBlockLanguage}>
+            {language} {filePath && <span className={styles.filePath}>(from: {filePath.split('/').pop()})</span>}
           </span>
           <button
             onClick={handleCopy}
-            style={{
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-              padding: "0.25rem",
-              display: "flex",
-              alignItems: "center",
-              color: "#c6c6c6",
-              transition: "color 0.2s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = "#f4f4f4"
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = "#c6c6c6"
-            }}
+            className={styles.copyButton}
             title="Copy Code"
+            aria-label="Copy Code"
           >
             {copied ? <Checkmark size={16} /> : <Copy size={16} />}
           </button>
         </div>
         
-        <pre
-          style={{
-            background: "#121619 !important",
-            color: "#f4f4f4",
-            padding: "1rem",
-            margin: 0,
-            overflow: "auto",
-            fontFamily: '"IBM Plex Mono", monospace',
-            fontSize: "0.7rem",
-            lineHeight: 1.1,
-            whiteSpace: "pre-wrap",
+        <SyntaxHighlighter
+          language={language}
+          style={codeStyle}
+          showLineNumbers={showLineNumbers}
+          wrapLongLines={true}
+          className={styles.syntaxHighlighter}
+          codeTagProps={{
+            style: {
+              fontFamily: '"IBM Plex Mono", monospace'
+            }
           }}
         >
-          <code>{getHighlightedCode()}</code>
-        </pre>
+          {codeContent}
+        </SyntaxHighlighter>
       </div>
     </div>
   )

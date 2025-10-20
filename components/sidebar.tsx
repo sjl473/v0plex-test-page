@@ -51,7 +51,15 @@ const navigationStructure: NavItem[] = [
         title: "v0plex Components",
         path: "/v0plex_components",
         children: [
-          {title: "To Be Continued", path: "/v0plex/v0plex_components/todo"},
+          {title: "Link", path: "/v0plex/v0plex_components/link"},
+          {title: "Code Block", path:"/v0plex/v0plex_components/code_block"},
+          {title: "Table (IBM Carbon Design)", path: "/v0plex/v0plex_components/table"},
+          {title: "Unordered List (IBM Carbon Design)", path: "/v0plex/v0plex_components/unordered_list"},
+          {title: "Single Image", path: "/v0plex/v0plex_components/singe_image"},
+          {title: "IBM Carbon Chart (IBM Carbon Design)", path: "/v0plex/v0plex_components/ibm_carbon_chart"},
+          {title: "Article Title", path: "/v0plex/v0plex_components/article_title"},
+          {title: "Last Updated At (IBM Carbon Design)", path: "/v0plex/v0plex_components/last_updated_at"},
+          {title: "Math Formula", path: "/v0plex/v0plex_components/math_formula"}
         ]
       }
     ],

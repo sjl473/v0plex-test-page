@@ -235,7 +235,7 @@ export default function IBMCarbonTable() {
                 </DataTable>
               </Theme>
             </div>
-            <h2>Another DataTable without sticky header</h2>
+            <h3>Another DataTable without a sticky header</h3>
             <div className="table-responsive-wrapper">
               <Theme as="section" theme={theme}>
                 <Table

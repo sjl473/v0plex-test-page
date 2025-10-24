@@ -198,7 +198,7 @@ export default function IBMCarbonTable() {
             </div>
             
             <h3>A complex DataTable with 7 rows (in a sticky header)</h3>
-            <p>This might perform poorly on smaller screens.</p>
+            <p>This might perform poorly on smaller screens, however it is considered as a feature in IBM carbon components</p>
             <div className="table-responsive-wrapper">
               <Theme as="section" theme={theme}>
                 <DataTable rows={complexRows} headers={fullHeaders}>

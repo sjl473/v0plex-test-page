@@ -11,8 +11,6 @@ export default function FutureWorksPage() {
     <>
       <style jsx>{`
         h1 {
-          font-weight: bolder;
-          font-size: 4rem;
           color: ${theme === 'white' ? '#491d8b' : '#be95ff'};
         }
 

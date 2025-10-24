@@ -13,13 +13,11 @@ export default function UseV0DevPage() {
     <>
       <style jsx>{`
         h1 {
-          font-size: 3rem;
           color: ${theme === 'white' ? '#491d8b' : '#be95ff'};
         }
 
         h5 {
           font-size: 0.7rem;
-          font-weight: 400;
           font-family: 'IBM Plex Mono', serif;
           color: ${theme === 'white' ? '#00539a' : '#82cfff'};
         }

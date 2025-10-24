@@ -118,7 +118,7 @@ body[v0plex-theme="g100"] {
 
 .page-typography-content h1 {
   color: var(--v0plex-text-primary);
-  font-size: 2.625rem; /* 42px */
+  font-size: 1.5rem !important; /* 42px */
   font-weight: 300;
   line-height: 1.199;
   margin: 0 0 1.5rem 0;
@@ -127,8 +127,8 @@ body[v0plex-theme="g100"] {
 
 .page-typography-content h2 {
   color: var(--v0plex-text-primary);
-  font-size: 2rem; /* 32px */
-  font-weight: 400;
+  font-size: 1.25rem !important; /* 32px */
+  font-weight: 300;
   line-height: 1.25;
   margin: 2rem 0 1rem 0;
   letter-spacing: -0.01em;
@@ -136,16 +136,16 @@ body[v0plex-theme="g100"] {
 
 .page-typography-content h3 {
   color: var(--v0plex-text-primary);
-  font-size: 1.75rem; /* 28px */
-  font-weight: 400;
+  font-size: 1rem !important; /* 28px */
+  font-weight: 300;
   line-height: 1.29;
   margin: 1.5rem 0 0.75rem 0;
 }
 
 .page-typography-content h4 {
   color: var(--v0plex-text-primary);
-  font-size: 1.25rem; /* 20px */
-  font-weight: 600;
+  font-size: 1rem !important; /* 20px */
+  font-weight: 300;
   line-height: 1.4;
   margin: 1.25rem 0 0.75rem 0;
 }
@@ -154,7 +154,7 @@ body[v0plex-theme="g100"] {
   color: var(--v0plex-text-secondary);
   margin-bottom: 1rem;
   line-height: 1.29;
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
   font-weight: 400;
   text-indent: 0 !important;
 }

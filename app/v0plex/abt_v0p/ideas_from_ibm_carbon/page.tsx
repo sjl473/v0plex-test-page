@@ -11,7 +11,6 @@ export default function BlogSystemConceptPage() {
     <>
       <style jsx>{`
         h1 {
-          font-size: 3rem;
           color: ${theme === 'white' ? '#491d8b' : '#be95ff'};
         }
 

@@ -22,7 +22,7 @@ export default function CodeBlockExamplePage() {
           
           <p>
             This includes support for loading code from code snippet files, often, code snippets are located
-            in <CodeBlock inline>/public/code_examples</CodeBlock>.
+            in <CodeBlock inline>/public/code_examples</CodeBlock>, show line number may perform poorly in smaller screens (to fix).
           </p>
           
           <CodeBlock

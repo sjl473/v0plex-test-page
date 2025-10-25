@@ -8,6 +8,7 @@ import Header from "@/components/header"
 import Sidebar from "@/components/sidebar"
 import Footer from "@/components/footer"
 import styles from "./client-layout.module.css"
+import PageNavigation from "@/components/page-navigation";
 
 export default function ClientLayout({
   children,
@@ -35,6 +36,7 @@ export default function ClientLayout({
             <Sidebar isMobileOpen={isMobileSidebarOpen} onCloseMobile={closeMobileSidebar} />
             <main className={styles.mainContent}>
               <div className={styles.contentWrapper}>{children}</div>
+              <PageNavigation />
               <Footer />
             </main>
           </div>

@@ -1,3 +1,4 @@
+
 "use client"
 import {usePathname} from "next/navigation"
 import Link from "next/link"
@@ -35,7 +36,7 @@ const PAGE_TITLES: Record<string, string> = {
   // "/v0plex/example_pages": "v0plex Example Pages",
   "/v0plex/example_pages/test-1": "Exampled Use Case 1",
   "/v0plex/example_pages/test-2": "Exampled Use Case 2",
-
+  
   "/v0plex/example_pages/test-3": "Exampled Use Case 3",
   "/v0plex/example_pages/ibm-carbon-table": "IBM Carbon Design Systems Table",
   // "/v0plex/v0plex_components": "v0plex Components",
@@ -49,6 +50,12 @@ const PAGE_TITLES: Record<string, string> = {
 const normalizePath = (path: string) => {
   return path.replace(/\/$/, "") || "/"
 }
+
+// 添加截断函数
+const truncateTitle = (title: string, maxLength: number = 30) => {
+  if (title.length <= maxLength) return title;
+  return title.substring(0, maxLength) + '...';
+};
 
 export default function PageNavigation() {
   const pathname = usePathname()
@@ -68,13 +75,17 @@ export default function PageNavigation() {
   const prevTitle = prevPage ? PAGE_TITLES[prevPage] : "None"
   const nextTitle = nextPage ? PAGE_TITLES[nextPage] : "None"
   
+  // 使用截断函数处理标题
+  const truncatedPrevTitle = truncateTitle(prevTitle);
+  const truncatedNextTitle = truncateTitle(nextTitle);
+  
   return (
     <div className={styles.navigation}>
       <div className={styles.navContainer}>
         {prevPage ? (
-          <Link href={prevPage} className={styles.navLink}>
+          <Link href={prevPage} className={styles.navLink} title={prevTitle}>
             <div className={styles.navLabel}>Previous</div>
-            <div className={styles.navTitle}>{prevTitle}</div>
+            <div className={styles.navTitle}>{truncatedPrevTitle}</div>
           </Link>
         ) : (
           <div className={`${styles.navLink} ${styles.disabled}`}>
@@ -84,9 +95,9 @@ export default function PageNavigation() {
         )}
         
         {nextPage ? (
-          <Link href={nextPage} className={`${styles.navLink} ${styles.nextLink}`}>
+          <Link href={nextPage} className={`${styles.navLink} ${styles.nextLink}`} title={nextTitle}>
             <div className={styles.navLabel}>Next</div>
-            <div className={styles.navTitle}>{nextTitle}</div>
+            <div className={styles.navTitle}>{truncatedNextTitle}</div>
           </Link>
         ) : (
           <div className={`${styles.navLink} ${styles.disabled}`}>

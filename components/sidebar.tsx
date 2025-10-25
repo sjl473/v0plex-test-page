@@ -59,7 +59,8 @@ const navigationStructure: NavItem[] = [
           {title: "IBM Carbon Chart (IBM Carbon Design)", path: "/v0plex/v0plex_components/ibm_carbon_chart"},
           {title: "Article Title", path: "/v0plex/v0plex_components/article_title"},
           {title: "Last Updated At (IBM Carbon Design)", path: "/v0plex/v0plex_components/last_updated_at"},
-          {title: "Math Formula", path: "/v0plex/v0plex_components/math"}
+          {title: "Math Formula", path: "/v0plex/v0plex_components/math"},
+          {title: "Edit This Page", path: "/v0plex/v0plex_components/edit_this_page"},
         ]
       }
     ],

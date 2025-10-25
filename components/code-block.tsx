@@ -67,9 +67,9 @@ export default function CodeBlock({
   const [error, setError] = useState<string | null>(null)
   const { theme } = useTheme()
   const isDarkTheme = theme === "g100"
-  const themeClass = isDarkTheme ? styles.darkTheme : styles.lightTheme
+  const themeClass = isDarkTheme ? styles.darkTheme : styles.darkTheme
 
-  const codeStyle = isDarkTheme ? vscDarkPlus : vs
+  const codeStyle = isDarkTheme ? vscDarkPlus : vscDarkPlus
 
   useEffect(() => {
     if (filePath) {

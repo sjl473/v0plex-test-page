@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       {}
-      <PageNavigation />
+      {/*<PageNavigation />*/}
 
       {}
       <div className={styles.main}>

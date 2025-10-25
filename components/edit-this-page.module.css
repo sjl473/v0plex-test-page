@@ -1,0 +1,25 @@
+
+.editThisPageLink {
+  display: block;
+  text-align: left;
+  margin-top: 0.5rem;
+  margin-bottom: -2rem;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.editThisPageLink a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.editThisPageLink a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .editThisPageLink {
+    margin-bottom: 1rem;
+  }
+}

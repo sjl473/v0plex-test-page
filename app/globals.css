@@ -97,13 +97,16 @@ body[v0plex-theme="g100"] {
   color: #f4f4f4 !important;
 }
 
+
+
 .v0plex-content {
   max-width: none;
   margin: 0;
-  padding: 2rem 2rem 2rem 2rem;
+  padding: 2rem 0; /* 移除左右内边距 */
   width: 100%;
   box-sizing: border-box;
 }
+
 
 .page-typography-content {
   color: var(--v0plex-text-primary);
@@ -114,6 +117,8 @@ body[v0plex-theme="g100"] {
   width: 100%;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  margin: 0; /* 确保没有边距 */
+  padding: 0; /* 确保没有内边距 */
 }
 
 .page-typography-content h1 {
@@ -304,7 +309,7 @@ pre code *,
 pre span,
 pre span code {
   background: transparent !important;
-  color: inherit !important;
+  /*color: inherit !important;*/
   padding: 0 !important;
   border: none !important;
   font-size: inherit !important;
@@ -449,9 +454,10 @@ aside::-webkit-scrollbar-thumb:hover {
   background: var(--v0plex-text-secondary);
 }
 
+
 @media (max-width: 1024px) {
   .v0plex-content {
-    padding: 1.5rem;
+    padding: 1.5rem 0; /* 移除左右内边距，保持上下内边距 */
   }
 
   aside {
@@ -465,8 +471,8 @@ aside::-webkit-scrollbar-thumb:hover {
 
 @media (max-width: 768px) {
   .v0plex-content {
-    padding: 1rem !important;
-    padding-top: 4rem !important; /* Add top padding for header space */
+    padding: 0 0 1rem 0 !important; /* 移除左右内边距 */
+    padding-top: 4rem !important; /* 保持顶部内边距给 header */
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -553,8 +559,8 @@ aside::-webkit-scrollbar-thumb:hover {
 
 @media (max-width: 480px) {
   .v0plex-content {
-    padding: 0.75rem !important;
-    padding-top: 4rem !important; /* Add top padding for header space */
+    padding: 0 0 0.75rem 0 !important; /* 移除左右内边距 */
+    padding-top: 4rem !important; /* 保持顶部内边距给 header */
     width: 100% !important;
     max-width: 100% !important;
   }

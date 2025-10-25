@@ -3,6 +3,8 @@
 import {GlobalTheme} from "@carbon/react"
 import {useTheme} from "@/components/theme-provider"
 import CodeBlock from "@/components/code-block"
+import EditThisPage from "@/components/edit-this-page";
+import {H1, H3} from "@/components/heading-anchor";
 
 export default function CodeBlockExamplePage() {
   const {theme} = useTheme()
@@ -12,17 +14,18 @@ export default function CodeBlockExamplePage() {
       <div className="v0plex-content">
         <div className="page-typography-content">
           <br></br>
-          <h1>v0plex components: @CodeBlock</h1>
+          <H1>v0plex components: @CodeBlock</H1>
           
           <p className="lead-text">
             v0plex supports code blocks implementation in tsx components.
           </p>
           
-          <h3>A javascript code snippet showing line numbers</h3>
+          <H3>A javascript code snippet showing line numbers</H3>
           
           <p>
             This includes support for loading code from code snippet files, often, code snippets are located
-            in <CodeBlock inline>/public/code_examples</CodeBlock>, show line number may perform poorly in smaller screens (to fix).
+            in <CodeBlock inline>/public/code_examples</CodeBlock>, show line number may perform poorly in smaller
+            screens (to fix).
           </p>
           
           <CodeBlock
@@ -31,21 +34,21 @@ export default function CodeBlockExamplePage() {
             showLineNumbers={true}
           />
           
-          <h3>A cplusplus code snippet not showing line numbers</h3>
+          <H3>A cplusplus code snippet not showing line numbers</H3>
           
           <CodeBlock
             language="cpp"
             filePath="/code_examples/llvm.cpp"
           />
           
-          <h3>An inline Code snippet</h3>
+          <H3>An inline Code snippet</H3>
           
           <p>
             Using <CodeBlock inline language="javascript">useState</CodeBlock> and
             <CodeBlock inline language="javascript">useEffect</CodeBlock> to manage state and side effects.
           </p>
           
-          <h3>Directly passing text into tsx element</h3>
+          <H3>Directly passing text into tsx element</H3>
           
           <p>
             If you do not want to put code files in a folder, you can also pass the code directly, however, this is not
@@ -91,6 +94,8 @@ const activeAdults = users
 
 console.log('Active adults:', activeAdults);`}
           </CodeBlock>
+          <EditThisPage
+            githubLink="https://github.com/yourusername/v0plex-test-page/blob/main/app/v0plex/abt_v0p/future_works/page.tsx"/>
         </div>
       </div>
     </GlobalTheme>

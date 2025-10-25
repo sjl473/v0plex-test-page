@@ -158,7 +158,7 @@ export default function IBMCarbonTable() {
           <div className="page-typography-content">
             <br></br>
             <h1>v0plex components: @DataTable</h1>
-            <p>v0plex supports the IBM Carbon DataTable component with additional Math formulas and inline code blocks inserted in.</p>
+            <p>v0plex supports the IBM Carbon DataTable component with additional Math formulas or inline code blocks inserted in.</p>
             <h3>A simple DataTable with 3 rows (not in a sticky header)</h3>
             <div className="table-responsive-wrapper">
               <Theme as="section" theme={theme}>

@@ -1,0 +1,40 @@
+
+.headingContainer {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.headingPrefix {
+  margin-right: 0.5rem;
+}
+
+:global(html[v0plex-theme="white"]) .headingContainer h1 {
+  color: #002d9c !important;
+  font-size: 3rem !important;
+  margin-left: -0.6rem;
+  /*font-weight: 800 !important;*/
+}
+:global(html[v0plex-theme="white"]) .headingContainer h2,
+:global(html[v0plex-theme="white"]) .headingContainer h3,
+:global(html[v0plex-theme="white"]) .headingContainer h4,
+:global(html[v0plex-theme="white"]) .headingContainer h5,
+:global(html[v0plex-theme="white"]) .headingContainer h6 {
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+:global(html[v0plex-theme="g100"]) .headingContainer h1 {
+  color: #0043ce !important;
+  font-size: 3rem !important;
+  margin-left: -0.6rem;
+  /*font-weight: 800 !important;*/
+}
+:global(html[v0plex-theme="g100"]) .headingContainer h2,
+:global(html[v0plex-theme="g100"]) .headingContainer h3,
+:global(html[v0plex-theme="g100"]) .headingContainer h4,
+:global(html[v0plex-theme="g100"]) .headingContainer h5,
+:global(html[v0plex-theme="g100"]) .headingContainer h6 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
